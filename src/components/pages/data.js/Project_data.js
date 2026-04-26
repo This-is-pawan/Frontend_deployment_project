@@ -2,7 +2,8 @@ import { IoAlertCircleOutline } from "react-icons/io5";
 import { IoCheckmarkCircleOutline } from "react-icons/io5";
 // 
 import { GrProjects } from "react-icons/gr";
-import { FaCodepen } from "react-icons/fa";
+import { FaCodepen} from "react-icons/fa";
+import { CiStopwatch } from "react-icons/ci";
 import { TbLogs } from "react-icons/tb";
 import { GoGraph } from "react-icons/go";
 import { RiSpeedUpFill } from "react-icons/ri";
@@ -29,8 +30,11 @@ import { BsVectorPen } from "react-icons/bs";
 import { IoIosHelpBuoy } from "react-icons/io";
 import { SiGoogledocs } from "react-icons/si";
 import { RiLogoutCircleRLine } from "react-icons/ri";
-import { MdOutlineWatchLater } from "react-icons/md";
-import { MdOutlineDownloading } from "react-icons/md";
+
+import { nanoid } from "nanoid";
+
+import { FiGitBranch } from "react-icons/fi";
+import { IoGitCommitOutline } from "react-icons/io5";
 export const data = [
   { id: 1, icon_1: IoCheckmarkCircleOutline, condition: 'Edge Requests', stroage: '1.5K / 1M', icon_2: IoAlertCircleOutline },
   { id: 2, icon_1: IoCheckmarkCircleOutline, condition: 'Fast data transfer', stroage: '1.5K / 1M', icon_2: IoAlertCircleOutline },
@@ -92,13 +96,119 @@ export const deployment_data = [
   { id: 5, title: 'initializing', checkbox_color: 'accent-gray-400' },
   { id: 6, title: 'canceled', checkbox_color: 'accent-blue-800' },
 ];
-export const deployment_project_data=[
-  {id:,},
-  {id:,},
-  {id:,},
-  {id:,},
-  {id:,},
-  {id:,},
-  {id:,},
-  {id:,},
-]
+export const deployment_project_data = Array.from({ length: 10 }, (_, i) => ({
+  id: i + 1,
+  title_id: nanoid(10),
+  production: "production",
+  situation: "current",
+  situation_icon: CiStopwatch,
+  status: "ready",
+  time: "2s",
+  project: "myportfolio",
+  master: "master",
+  master_icon: FiGitBranch,
+  commit: nanoid(8),                
+  commit_icon: IoGitCommitOutline, 
+  project_date: "Apr 21",
+  user_img: "https://picsum.photos/200",
+}));
+// projects.js
+
+export const environment_data = [
+  {
+    id: 1,
+    title: "JWT_KEY",
+    status: "Needs Attention",
+    env: "Production, Preview, Development",
+    date: "6/21/25",
+    img: "https://picsum.photos/200"
+  },
+  {
+    id: 2,
+    title: "MONGODB_URL",
+    status: "Needs Attention",
+    env: "Production, Preview, Development",
+    date: "6/21/25",
+    img: "https://picsum.photos/200"
+  },
+  {
+    id: 3,
+    title: "NODE_ENV",
+    status: "Configured",
+    env: "Production, Preview, Development",
+    date: "6/21/25",
+    img: "https://picsum.photos/200"
+  },
+  {
+    id: 4,
+    title: "PORT",
+    status: "Configured",
+    env: "Production, Preview, Development",
+    date: "6/21/25",
+    img: "https://picsum.photos/200"
+  },
+  {
+    id: 5,
+    title: "API_KEY",
+    status: "Missing",
+    env: "Production",
+    date: "6/21/25",
+    img: "https://picsum.photos/200"
+  },
+  {
+    id: 6,
+    title: "SECRET_KEY",
+    status: "Needs Attention",
+    env: "Development",
+    date: "6/21/25",
+    img: "https://picsum.photos/200"
+  },
+  {
+    id: 7,
+    title: "REDIS_URL",
+    status: "Configured",
+    env: "Production",
+    date: "6/21/25",
+    img: "https://picsum.photos/200"
+  },
+  {
+    id: 8,
+    title: "CLOUDINARY_URL",
+    status: "Missing",
+    env: "Preview",
+    date: "6/21/25",
+    img: "https://picsum.photos/200"
+  },
+  {
+    id: 9,
+    title: "STRIPE_KEY",
+    status: "Needs Attention",
+    env: "Production",
+    date: "6/21/25",
+    img: "https://picsum.photos/200"
+  },
+  {
+    id: 10,
+    title: "MAIL_HOST",
+    status: "Configured",
+    env: "Development",
+    date: "6/21/25",
+    img: "https://picsum.photos/200"
+  },
+  {
+    id: 11,
+    title: "MAIL_PASS",
+    status: "Missing",
+    env: "Production",
+    date: "6/21/25",
+    img: "https://picsum.photos/200"
+  },
+  {
+    id: 12,
+    title: "BASE_URL",
+    status: "Configured",
+    env: "Production",
+    date: "6/21/25",
+    img: "https://picsum.photos/200"
+  }
+];

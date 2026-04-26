@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import {  FaCalendarCheck, FaSearch } from "react-icons/fa";
 import { IoIosArrowUp, IoIosArrowDown ,} from "react-icons/io";
 import {useGlobalContext} from '../../context/ContextApi'
-import { deployment_data } from './data.js/Project_data';
+import { deployment_data, deployment_project_data } from './data.js/Project_data';
 import Calendar from './Calender';
 
 
@@ -96,6 +96,87 @@ const { sidebar, setSidebar } = useGlobalContext();
   </p>
 </article>
 </div>
+{/* deploy projects */}
+<div className="w-full shadow-md ">
+
+      {deployment_project_data.map(
+        ({
+          id,
+          title_id,
+          production,
+          situation,
+          situation_icon: Situation_Icon,
+          status,
+          time,
+          project,
+          master,
+          master_icon: Master_Icon,
+          commit,
+          commit_icon: Commit_Icon,
+          user_img,
+          project_date,
+        }) => {
+          return (
+            <article key={id} className="w-full border p-3 mb-2 rounded-md hover:bg-gray-50 transition flex justify-between ">
+
+              {/* Top Section */}
+              <div className="">
+                <p className="text-sm ">{title_id}</p>
+
+                <span className="w-40 items-center m-2 text-xs text-gray-500 capitalize flex justify-around">
+                  {production}
+
+                <p className="w-20 rounded-lg text-xs justify-center flex items-center bg-purple-200">
+                  {Situation_Icon && <Situation_Icon />}
+                  {situation}
+                </p>
+                </span>
+              </div>
+
+              {/* Status */}
+              <div className="">
+                <p className='w-3 h-3 bg-pink-200 rounded-full'></p>
+                <p>{status}</p>
+                <p>{time}</p>
+              </div>
+
+              {/* Project */}
+              <div className="text-sm ">
+                <article className=''>
+                <p>{project}</p>
+                <article className='flex items-center justify-center'>
+
+                <p className="flex">
+                  {Master_Icon && <Master_Icon />}
+                  {master}
+                </p>
+                </article>
+                </article>
+<article className='flex'>
+                <p className="">
+                  {Commit_Icon && <Commit_Icon />}
+                 </p>
+                 <p> {commit}</p>
+</article>
+              </div>
+
+              {/* Footer */}
+              <div className="flex items-center justify-center ">
+                <p className="text-xs text-gray-400 mr-2">{project_date}</p>
+
+                <img
+                  src={user_img}
+                  alt="user"
+                  className="w-6 h-6 rounded-full object-cover"
+                />
+              </div>
+
+            </article>
+          );
+        }
+      )}
+
+    </div>
 
     </div>
   )

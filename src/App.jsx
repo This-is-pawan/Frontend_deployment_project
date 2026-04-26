@@ -14,6 +14,7 @@ import Integrations from './components/pages/Integrations'
 import Storage from './components/pages/Storage'
 import { Navbar } from './components/Navbar'
 import SideBar from './components/SideBar'
+import Enviornment from './components/pages/Enviornment'
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
   <Route path="/observability" element={<Observability/>}/>
   <Route path="/firewall" element={<Firebwall/>}/>
   <Route path="/cdn" element={<Cdn/>}/>
+  <Route path="/environment-variables" element={<Enviornment/>}/>
   <Route path="/domains" element={<Domains/>}/>
   <Route path="/integrations" element={<Integrations/>}/>
   <Route path="/storage" element={<Storage/>}/>
