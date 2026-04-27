@@ -15,6 +15,12 @@ import Storage from './components/pages/Storage'
 import { Navbar } from './components/Navbar'
 import SideBar from './components/SideBar'
 import Enviornment from './components/pages/Enviornment'
+import Flags from './components/pages/Flags'
+import Sandboxes from './components/pages/Sandboxes'
+import Workflows from './components/pages/Workflows'
+import Support from './components/pages/Support'
+import Settings from './components/pages/Settings'
+import Usage from './components/pages/Usage'
 
 const App = () => {
   return (
@@ -35,14 +41,12 @@ const App = () => {
   <Route path="/domains" element={<Domains/>}/>
   <Route path="/integrations" element={<Integrations/>}/>
   <Route path="/storage" element={<Storage/>}/>
-  <Route path="/flags" element={''}/>
-  <Route path="/agent" element={''}/>
-  <Route path="/ai-gateway" element={''}/>
-  <Route path="/sandboxes" element={''}/>
-  <Route path="/workflows" element={''}/>
-  <Route path="/usage" element={''}/>
-  <Route path="/support" element={''}/>
-  <Route path="/settings" element={''}/>
+  <Route path="/flags" element={<Flags/>}/>
+  <Route path="/sandboxes" element={<Sandboxes/>}/>
+  <Route path="/workflows" element={<Workflows/>}/>
+  <Route path="/usage" element={<Usage/>}/>
+  <Route path="/support" element={<Support/>}/>
+  <Route path="/settings" element={<Settings/>}/>
   
 </Routes>
     </div>

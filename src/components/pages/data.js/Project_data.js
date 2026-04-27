@@ -69,8 +69,6 @@ export const  sideBar=[
   {id:11,links:'integrations',icons:RiHome5Line ,path:'/integrations'},
   {id:12,links:'storage',icons:GrStorage,path:'/storage'},
   {id:13,links:'flags',icons:FaFlagCheckered,path:'/flags'},
-  {id:14,links:'agents',icons:PiDotsThreeFill,path:'/agents'},
-  {id:15,links:'ai gateway',icons:FaHandDots,path:'/ai-gateway'},
   {id:16,links:'sandboxes',icons:VscSendToRemoteAgent,path:'/sandboxes' },
   {id:17,links:'workflows',icons:FaWarehouse,path:'/workflows'},
   {id:18,links:'usage',icons:IoCodeWorkingOutline,path:'/usage'},
@@ -211,4 +209,62 @@ export const environment_data = [
     date: "6/21/25",
     img: "https://picsum.photos/200"
   }
+];
+
+export const integration_data = [
+  {
+    id: 1,
+    title: "Browserbase",
+    description:
+      "Autonomously read, write, and perform tasks on the web with serverless browsers",
+    category: "Automation",
+    img: "https://cdn-icons-png.flaticon.com/512/1006/1006771.png",
+  },
+  {
+    id: 2,
+    title: "PostHog",
+    description:
+      "Understand your users - analytics, session replay, errors, flags, & more",
+    category: "Analytics",
+    img: "https://cdn-icons-png.flaticon.com/512/5968/5968350.png",
+  },
+  {
+    id: 3,
+    title: "Parallel Web Systems",
+    description:
+      "The most accurate web search for AI— ranked results, snippets, and page content.",
+    category: "Search",
+    img: "https://cdn-icons-png.flaticon.com/512/1828/1828919.png",
+  },
+  {
+    id: 4,
+    title: "Sanity",
+    description:
+      "The content backend for shipping sites, apps and agents faster.",
+    category: "CMS",
+    img: "https://cdn-icons-png.flaticon.com/512/5968/5968705.png",
+  },
+  {
+    id: 5,
+    title: "cubic",
+    description: "AI code reviews for complex codebases.",
+    category: "AI Tools",
+    img: "https://cdn-icons-png.flaticon.com/512/4712/4712027.png",
+  },
+  {
+    id: 6,
+    title: "AssistLoop",
+    description:
+      "Build an AI agent that handles support and escalates to humans when needed.",
+    category: "Support",
+    img: "https://cdn-icons-png.flaticon.com/512/4712/4712109.png",
+  },
+  {
+    id: 7,
+    title: "AWS",
+    description:
+      "Serverless, reliable, secure PostgreSQL and NoSQL databases.",
+    category: "Cloud",
+    img: "https://cdn-icons-png.flaticon.com/512/873/873120.png",
+  },
 ];
