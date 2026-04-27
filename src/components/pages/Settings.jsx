@@ -11,47 +11,17 @@ const Settings = () => {
     { id: "billing", label: "Billing" },
   ];
 
-  return (
-    <div className="flex mt-[4rem] min-h-screen bg-gray-50">
-
-      {/* Sidebar */}
-      <aside className="w-64 bg-white border-r p-4 hidden md:block">
-        <h2 className="font-semibold mb-4">Settings</h2>
-
-        <ul className="space-y-2">
-          {tabs.map((tab) => (
-            <li
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={`p-2 rounded-md cursor-pointer text-sm ${
-                activeTab === tab.id
-                  ? "bg-pink-100 text-pink-600"
-                  : "hover:bg-gray-100"
-              }`}
-            >
-              {tab.label}
-            </li>
-          ))}
-        </ul>
-      </aside>
-
-      {/* Main Content */}
-      <main className="flex-1 p-4 md:p-8">
-
-        {/* Page Title */}
-        <h1 className="text-2xl font-semibold mb-6 capitalize">
-          {activeTab}
-        </h1>
-
-        {/* GENERAL */}
-        {activeTab === "general" && (
-          <div className="bg-white p-6 rounded-xl border space-y-4 max-w-2xl">
+  const renderContent = () => {
+    switch (activeTab) {
+      case "general":
+        return (
+          <div className="bg-white p-6 rounded-xl border space-y-4">
             <div>
               <label className="text-sm font-medium">Project Name</label>
               <input
                 type="text"
                 placeholder="My Project"
-                className="w-full mt-1 p-2 border rounded-md"
+                className="w-full mt-1 p-2 border rounded-md outline-none focus:ring-1 focus:ring-pink-400"
               />
             </div>
 
@@ -60,7 +30,7 @@ const Settings = () => {
               <input
                 type="text"
                 placeholder="React / Vite"
-                className="w-full mt-1 p-2 border rounded-md"
+                className="w-full mt-1 p-2 border rounded-md outline-none focus:ring-1 focus:ring-pink-400"
               />
             </div>
 
@@ -68,31 +38,29 @@ const Settings = () => {
               Save Changes
             </button>
           </div>
-        )}
+        );
 
-        {/* DOMAINS */}
-        {activeTab === "domains" && (
-          <div className="bg-white p-6 rounded-xl border max-w-2xl">
+      case "domains":
+        return (
+          <div className="bg-white p-6 rounded-xl border">
             <p className="text-sm text-gray-600 mb-4">
               Add a custom domain to your project.
             </p>
 
-            <div className="flex gap-2">
+            <div className="flex flex-col sm:flex-row gap-2">
               <input
                 type="text"
                 placeholder="example.com"
                 className="flex-1 p-2 border rounded-md"
               />
-              <button className="border px-4 rounded-md">
-                Add
-              </button>
+              <button className="border px-4 py-2 rounded-md">Add</button>
             </div>
           </div>
-        )}
+        );
 
-        {/* ENVIRONMENT */}
-        {activeTab === "environment" && (
-          <div className="bg-white p-6 rounded-xl border max-w-3xl">
+      case "environment":
+        return (
+          <div className="bg-white p-6 rounded-xl border">
             <p className="text-sm text-gray-600 mb-4">
               Manage environment variables for your project.
             </p>
@@ -113,11 +81,11 @@ const Settings = () => {
               Add Variable
             </button>
           </div>
-        )}
+        );
 
-        {/* SECURITY */}
-        {activeTab === "security" && (
-          <div className="bg-white p-6 rounded-xl border max-w-2xl space-y-4">
+      case "security":
+        return (
+          <div className="bg-white p-6 rounded-xl border space-y-4">
             <p className="text-sm text-gray-600">
               Manage access and security settings.
             </p>
@@ -126,15 +94,15 @@ const Settings = () => {
               Enable 2FA
             </button>
 
-            <button className="border px-4 py-2 rounded-md text-red-500">
+            <button className="border px-4 py-2 rounded-md text-red-500 block">
               Logout All Devices
             </button>
           </div>
-        )}
+        );
 
-        {/* BILLING */}
-        {activeTab === "billing" && (
-          <div className="bg-white p-6 rounded-xl border max-w-2xl">
+      case "billing":
+        return (
+          <div className="bg-white p-6 rounded-xl border">
             <p className="text-sm text-gray-600 mb-4">
               Manage your subscription and billing.
             </p>
@@ -148,7 +116,62 @@ const Settings = () => {
               Upgrade Plan
             </button>
           </div>
-        )}
+        );
+
+      default:
+        return null;
+    }
+  };
+
+  return (
+    <div className="mt-[4rem] min-h-screen bg-gray-50 flex flex-col md:flex-row">
+      {/* Desktop Sidebar */}
+      <aside className="hidden md:block w-64 bg-white border-r p-4">
+        <h2 className="font-semibold mb-4">Settings</h2>
+
+        <ul className="space-y-2">
+          {tabs.map((tab) => (
+            <li
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              className={`p-2 rounded-md cursor-pointer text-sm ${
+                activeTab === tab.id
+                  ? "bg-pink-100 text-pink-600"
+                  : "hover:bg-gray-100"
+              }`}
+            >
+              {tab.label}
+            </li>
+          ))}
+        </ul>
+      </aside>
+
+      {/* Mobile Tabs */}
+      <div className="md:hidden bg-white border-b overflow-x-auto">
+        <div className="flex min-w-max p-2 gap-2">
+          {tabs.map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              className={`px-4 py-2 rounded-md text-sm whitespace-nowrap ${
+                activeTab === tab.id
+                  ? "bg-pink-100 text-pink-600"
+                  : "bg-gray-100"
+              }`}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <main className="flex-1 p-4 md:p-8">
+        <h1 className="text-2xl font-semibold mb-6 capitalize">
+          {activeTab.replace("-", " ")}
+        </h1>
+
+        <div className="max-w-3xl">{renderContent()}</div>
       </main>
     </div>
   );
